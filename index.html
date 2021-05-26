@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+        <title>Html document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #f0db7f;
+            }
+            #output {
+                font-family: Verdana;
+                text-align: center;
+                color: #303232;
+                font-size:  100px;
+            }
+            #output, #container {
+                display: flex;
+                justify-content: center;
+                margin-top: 100px;
+            }
+            input {
+                background-color: #eff;
+                border: none;
+                font-family: Verdana;
+                color: #000;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 30px;
+            }
+            td {
+                background-color: #eff;
+                border: 3px solid #303232;
+                min-width: 80px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            var firstqn = true;
+            var kelvi = "What is your Name?";
+            function bot() { 
+                var answer = document.getElementById("input").value;
+
+                if(answer == "") {
+                    document.getElementById("output").innerHTML = 'Type something bruh :(';
+                document.getElementById("input").value = "";					      	
+                setTimeout(timedQuestion, 2000);
+                }
+                else if (firstqn) {
+                    document.getElementById("output").innerHTML = 'Hello ' + answer + '... ';
+                document.getElementById("input").value = "";
+                kelvi = "What\'s on your mind?";
+                firstqn = false;
+                setTimeout(timedQuestion, 2000);
+                }
+
+                else if(answer == "nothing" || answer == "Nothing" || answer == "NOTHING") {
+                    document.getElementById("output").innerHTML = 'Good :)';
+                document.getElementById("input").value = "";					      	
+                setTimeout(timedQuestion, 2000);
+                }
+
+                else {
+                    document.getElementById("output").innerHTML = 'I don\'t care :)';
+                document.getElementById("input").value = "";					      	
+                setTimeout(timedQuestion, 2000);
+                }   
+            }
+
+            function timedQuestion() {
+                document.getElementById("output").innerHTML = kelvi;
+            }
+
+            document.addEventListener("keydown", function(event) {
+            if(event.which == 13)
+            bot();
+            })
+        </script>
+    </head>
+    <body>
+        <h1 id="output">What is your Name?</h1>
+        <div id="container">
+            <table>
+                <tr>
+                    <td><input type="text" id="input" value=""></td>
+                    <td><a onclick="bot()"><i class="far fa-paper-plane" style="font-size: 50px;"></i></a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
