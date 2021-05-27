@@ -14,10 +14,10 @@
                 padding: 0;
             }
             body {
-                background-color: #f0db7f;
+                background-color: #f0db4f;
             }
             #output {
-                font-family: Verdana;
+                font-family: sans-serif;
                 text-align: center;
                 color: #303232;
                 font-size:  5vw;
@@ -30,8 +30,8 @@
             input {
                 background-color: #eff;
                 border: none;
-                font-family: Verdana;
-                color: #000;
+                font-family: sans-serif;
+                color: #303232;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
@@ -42,43 +42,43 @@
                 font-size: 4vw;
                 text-align: center;
             }
+            a {
+                cursor: pointer;
+            }
         </style>
         <script>
             var firstqn = true;
-            var kelvi = "What is your Name?";
+            var question = "What is your Name?";
             function bot() { 
                 var answer = document.getElementById("input").value;
-
+                var name = "";
                 if(answer == "") {
                     document.getElementById("output").innerHTML = 'Type something bruh :(';
                 document.getElementById("input").value = "";					      	
                 setTimeout(timedQuestion, 2000);
                 }
                 else if (firstqn) {
-                    document.getElementById("output").innerHTML = 'Hello ' + answer + '... ';
+                    name = document.getElementById("input").value;
+                    document.getElementById("output").innerHTML = 'Hello ' + name + '... ';
                 document.getElementById("input").value = "";
-                kelvi = "What\'s on your mind?";
+                question = name+ ", What\'s on your mind?";
                 firstqn = false;
                 setTimeout(timedQuestion, 2000);
                 }
-
                 else if(answer == "nothing" || answer == "Nothing" || answer == "NOTHING") {
-                    document.getElementById("output").innerHTML = 'Good :)';
+                    document.getElementById("output").innerHTML = 'Good, there should be nothing in your mind';
                 document.getElementById("input").value = "";					      	
-                setTimeout(timedQuestion, 2000);
+                setTimeout(timedQuestion, 4000);
                 }
-
                 else {
                     document.getElementById("output").innerHTML = 'I don\'t care :)';
                 document.getElementById("input").value = "";					      	
                 setTimeout(timedQuestion, 2000);
                 }   
             }
-
             function timedQuestion() {
-                document.getElementById("output").innerHTML = kelvi;
+                document.getElementById("output").innerHTML = question;
             }
-
             document.addEventListener("keydown", function(event) {
             if(event.which == 13)
             bot();
