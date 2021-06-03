@@ -14,12 +14,12 @@
                 padding: 0;
             }
             body {
-                background-color: #f0db4f;
+                background-color: #f7e96f;
             }
             #output {
                 font-family: sans-serif;
                 text-align: center;
-                color: #303232;
+                color: #2a2a22;
                 font-size:  5vw;
             }
             #output, #container {
@@ -28,19 +28,22 @@
                 margin-top: 10vh;
             }
             input {
-                background-color: #eff;
+                background-color: #ddd;
                 border: none;
                 font-family: sans-serif;
-                color: #303232;
+                color: #2a2a22;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
             }
             td {
-                background-color: #eff;
+                background-color: #ddd;
                 min-width: 6vw;
                 font-size: 4vw;
                 text-align: center;
+            }
+            tr {
+                border: 0.5vw solid #2a2a22;
             }
             a {
                 cursor: pointer;
@@ -83,6 +86,12 @@
             if(event.which == 13)
             bot();
             })
+            function changeiconA() {
+                document.getElementById("icon").classList = "far fa-paper-plane";
+            }
+            function changeiconB() {
+                document.getElementById("icon").classList = "fas fa-paper-plane";
+            }
         </script>
     </head>
     <body>
@@ -90,8 +99,14 @@
         <div id="container">
             <table>
                 <tr>
-                    <td><input type="text" id="input" value=""></td>
-                    <td><a onclick="bot()"><i class="far fa-paper-plane"></i></a></td>
+                    <td>
+                        <input type="text" id="input" value="">
+                    </td>
+                    <td>
+                        <a onclick="bot()">
+                            <i onmouseover="changeiconB()" onmouseout="changeiconA()" id="icon" class="far fa-paper-plane"></i>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>
